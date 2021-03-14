@@ -13,7 +13,7 @@ export const LastMatch = ({ match }) => (match ? (
   </div>
 ) : null);
 
-function mapState2Props(state, ownProps) {
+export function mapStateToProps(state, ownProps) {
   const game = _.find(state.games, { id: ownProps.game });
   const matches = _.filter(state.matches, (match) => _.includes(game.matches, match.id));
   return {
@@ -36,4 +36,4 @@ LastMatch.defaultProps = {
   match: null,
 };
 
-export const ConnectedLastMatch = connect(mapState2Props)(LastMatch);
+export const ConnectedLastMatch = connect(mapStateToProps)(LastMatch);
