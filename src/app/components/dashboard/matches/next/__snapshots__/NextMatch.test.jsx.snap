@@ -1,0 +1,189 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Next Match Component display element should not render element without next match 1`] = `null`;
+
+exports[`Next Match Component display element should render element with next match 1`] = `
+<div
+  className="page-body-full"
+>
+  <div>
+    <div
+      className="page-body-label"
+    >
+      next match
+    </div>
+    <div
+      className="table-frame"
+    >
+      <div
+        className="table-div"
+      >
+        <table
+          className="table"
+        >
+          <thead>
+            <tr>
+              <th
+                className="header"
+              >
+                Home
+              </th>
+              <th
+                className="header"
+              >
+                2021-02-01
+              </th>
+              <th
+                className="header"
+              >
+                18:00
+              </th>
+              <th
+                className="header"
+              >
+                Away
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td
+                className="match-row"
+              >
+                <div
+                  className="match-home-team-row"
+                >
+                  <div
+                    className="match-team-icon"
+                  >
+                    <img
+                      alt=""
+                      className="icon-img"
+                      src="https://upload.wikimedia.org/wikipedia/en/8/8f/Slask_Wroclaw_crest.png"
+                    />
+                  </div>
+                  <div
+                    className="match-home-team-row-name"
+                  >
+                    <p
+                      className="match-home-team-row-name-p"
+                    >
+                      Stal Mielec
+                    </p>
+                  </div>
+                </div>
+              </td>
+              <td
+                className="match-table-result-row"
+              >
+                <p
+                  className="match-result-p"
+                >
+                  ?
+                </p>
+              </td>
+              <td
+                className="match-table-result-row"
+              >
+                <p
+                  className="match-result-p"
+                >
+                  ?
+                </p>
+              </td>
+              <td
+                className="match-row"
+              >
+                <div
+                  className="match-away-team-row"
+                >
+                  <div
+                    className="match-away-team-row-name"
+                  >
+                    <p
+                      className="match-away-team-row-name-p"
+                    >
+                      Śląsk Wrocław
+                    </p>
+                  </div>
+                  <div
+                    className="match-team-icon"
+                  >
+                    <img
+                      alt=""
+                      className=".icon-img"
+                      src="https://upload.wikimedia.org/wikipedia/en/8/8f/Slask_Wroclaw_crest.png"
+                    />
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div>
+    <form>
+      <label>
+        home team goals:
+        <input
+          max={9}
+          min={0}
+          onChange={[Function]}
+          type="number"
+          value={0}
+        />
+      </label>
+      <label>
+        away team goals:
+        <input
+          max={9}
+          min={0}
+          onChange={[Function]}
+          type="number"
+          value={0}
+        />
+      </label>
+      <button
+        disabled={false}
+        onClick={[Function]}
+        type="button"
+      >
+        update match!
+      </button>
+    </form>
+  </div>
+  <div>
+    <form>
+      <label>
+        Stal Mielec
+        <input
+          max={9}
+          min={0}
+          onChange={[Function]}
+          type="number"
+          value={0}
+        />
+      </label>
+      <label>
+        Śląsk Wrocław
+        <input
+          max={9}
+          min={0}
+          onChange={[Function]}
+          type="number"
+          value={0}
+        />
+      </label>
+      <button
+        disabled={true}
+        onClick={[Function]}
+        type="button"
+      >
+        bet this match!
+      </button>
+    </form>
+  </div>
+</div>
+`;
