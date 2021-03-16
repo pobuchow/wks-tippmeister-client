@@ -1,6 +1,6 @@
 import TestRenderer from 'react-test-renderer';
 import React from 'react';
-import { mapStateToProps } from './LastMatch';
+import { LastMatch, mapStateToProps } from './LastMatch';
 
 describe('Last Match Component', () => {
   describe('mapStateToProps', () => {
@@ -107,6 +107,26 @@ describe('Last Match Component', () => {
       const componentState = mapStateToProps(appState, ownProps);
       expect(componentState).toHaveProperty('match');
       expect(componentState.match).toBeUndefined();
+    });
+  });
+  describe('display element', () => {
+    it('should render element with last match', () => {
+      const tree = TestRenderer
+        .create(<LastMatch match={{
+          id: '1',
+          event_datetime: new Date(2020, 12 - 1, 17, 18, 0, 0, 0),
+          homeTeam: 'Śląsk Wrocław',
+          awayTeam: 'Warta Poznań',
+          goalsHomeTeam: 2,
+          goalsAwayTeam: 1,
+        }}
+        />).toJSON();
+      expect(tree).toMatchSnapshot();
+    });
+    it('should not render element without last match', () => {
+      const tree = TestRenderer
+        .create(<LastMatch match={undefined} />).toJSON();
+      expect(tree).toMatchSnapshot();
     });
   });
 });

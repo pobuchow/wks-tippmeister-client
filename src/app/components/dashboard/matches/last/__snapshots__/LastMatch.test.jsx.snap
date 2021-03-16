@@ -1,0 +1,127 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Last Match Component display element should not render element without last match 1`] = `null`;
+
+exports[`Last Match Component display element should render element with last match 1`] = `
+<div
+  className="page-body-full"
+>
+  <div>
+    <div
+      className="page-body-label"
+    >
+      last match
+    </div>
+    <div
+      className="table-frame"
+    >
+      <div
+        className="table-div"
+      >
+        <table
+          className="table"
+        >
+          <thead>
+            <tr>
+              <th
+                className="header"
+              >
+                Home
+              </th>
+              <th
+                className="header"
+              >
+                2020-12-17
+              </th>
+              <th
+                className="header"
+              >
+                18:00
+              </th>
+              <th
+                className="header"
+              >
+                Away
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td
+                className="match-row"
+              >
+                <div
+                  className="match-home-team-row"
+                >
+                  <div
+                    className="match-team-icon"
+                  >
+                    <img
+                      alt=""
+                      className="icon-img"
+                      src="https://upload.wikimedia.org/wikipedia/en/8/8f/Slask_Wroclaw_crest.png"
+                    />
+                  </div>
+                  <div
+                    className="match-home-team-row-name"
+                  >
+                    <p
+                      className="match-home-team-row-name-p"
+                    >
+                      Śląsk Wrocław
+                    </p>
+                  </div>
+                </div>
+              </td>
+              <td
+                className="match-table-result-row"
+              >
+                <p
+                  className="match-result-p"
+                >
+                  2
+                </p>
+              </td>
+              <td
+                className="match-table-result-row"
+              >
+                <p
+                  className="match-result-p"
+                >
+                  1
+                </p>
+              </td>
+              <td
+                className="match-row"
+              >
+                <div
+                  className="match-away-team-row"
+                >
+                  <div
+                    className="match-away-team-row-name"
+                  >
+                    <p
+                      className="match-away-team-row-name-p"
+                    >
+                      Warta Poznań
+                    </p>
+                  </div>
+                  <div
+                    className="match-team-icon"
+                  >
+                    <img
+                      alt=""
+                      className=".icon-img"
+                      src="https://upload.wikimedia.org/wikipedia/en/8/8f/Slask_Wroclaw_crest.png"
+                    />
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+`;
