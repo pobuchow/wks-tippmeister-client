@@ -125,9 +125,12 @@ exports[`Next Match Component display element should render element with next ma
   </div>
   <div>
     <form>
-      <label>
+      <label
+        htmlFor="goalsHomeTeam"
+      >
         home team goals:
         <input
+          id="goalsHomeTeam"
           max={9}
           min={0}
           onChange={[Function]}
@@ -135,9 +138,12 @@ exports[`Next Match Component display element should render element with next ma
           value={0}
         />
       </label>
-      <label>
+      <label
+        htmlFor="goalsAwayTeam"
+      >
         away team goals:
         <input
+          id="goalsAwayTeam"
           max={9}
           min={0}
           onChange={[Function]}
@@ -156,9 +162,12 @@ exports[`Next Match Component display element should render element with next ma
   </div>
   <div>
     <form>
-      <label>
+      <label
+        htmlFor="goalsHomeTeam"
+      >
         Stal Mielec
         <input
+          id="goalsHomeTeam"
           max={9}
           min={0}
           onChange={[Function]}
@@ -166,9 +175,12 @@ exports[`Next Match Component display element should render element with next ma
           value={0}
         />
       </label>
-      <label>
+      <label
+        htmlFor="goalsAwayTeam"
+      >
         Śląsk Wrocław
         <input
+          id="goalsAwayTeam"
           max={9}
           min={0}
           onChange={[Function]}

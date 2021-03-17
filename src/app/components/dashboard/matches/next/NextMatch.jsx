@@ -6,8 +6,8 @@ import {
   getNextMatch,
 } from '../../../../services/match/MatchService';
 import MatchTable from '../table/MatchTable';
-import { ConnectedBetNextMatchForm } from './BetNextMatchForm';
-import { ConnectedSetMatchResultForm } from './SetMatchResultForm';
+import { ConnectedBetNextMatchForm } from './forms/betNextMatch/BetNextMatchForm';
+import { ConnectedSetMatchResultForm } from './forms/setMatchResult/SetMatchResultForm';
 
 const label = 'next match';
 
