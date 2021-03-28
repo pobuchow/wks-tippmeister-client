@@ -4,7 +4,7 @@ import MatchTable from './MatchTable';
 
 const match = {
   id: '1',
-  event_datetime: new Date(2020, 12-1, 17, 18, 0, 0, 0),
+  event_datetime: new Date(2020, 12 - 1, 17, 18, 0, 0, 0),
   homeTeam: 'Śląsk Wrocław',
   awayTeam: 'Warta Poznań',
   goalsHomeTeam: 2,
@@ -13,7 +13,7 @@ const match = {
 
 const matchWithoutGoals = {
   id: '1',
-  event_datetime: new Date(2020, 12-1, 17, 18, 0, 0, 0),
+  event_datetime: new Date(2020, 12 - 1, 17, 18, 0, 0, 0),
   homeTeam: 'Śląsk Wrocław',
   awayTeam: 'Warta Poznań',
   goalsHomeTeam: null,

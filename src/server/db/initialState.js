@@ -1,7 +1,7 @@
 import md5 from 'md5';
 export const initialState = {
     session: {
-        authenticated: false
+        authenticated: ''
     },
     games: [{
         id: '2',
