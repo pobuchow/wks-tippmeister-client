@@ -1,21 +1,14 @@
-import React from "react";
-import { Provider } from "react-redux";
-import { store } from "../../store";
-import { ConnectedDashboard } from "../dashboard/Dashboard";
-import { ConnectedLogin } from "../login/Login";
-import { Router, Route, Switch } from "react-router-dom";
-import { Redirect } from "react-router";
-import { history } from "../../store/history";
-import { ConnectedGameboard } from "../gameboard/Gameboard";
+import React from 'react';
+import { Provider } from 'react-redux';
+import { Router, Route, Switch } from 'react-router-dom';
+import { store } from '../../store';
+import { ConnectedDashboard } from '../dashboard/Dashboard';
+import { ConnectedLogin } from '../login/Login';
+import { history } from '../../store/history';
+import { ConnectedGameboard } from '../gameboard/Gameboard';
+import RouteGuard from './routeGuard/RouteGuard';
 
-const RouteGuard = (Component) => ({ match }) => {
-  if (!store.getState().session.authenticated) {
-    return <Redirect to="/" />;
-  }
-  return <Component match={match} />;
-};
-
-export const Main = () => (
+const Main = () => (
   <Router history={history}>
     <Provider store={store}>
       <div>
@@ -32,3 +25,5 @@ export const Main = () => (
     </Provider>
   </Router>
 );
+
+export default Main;
