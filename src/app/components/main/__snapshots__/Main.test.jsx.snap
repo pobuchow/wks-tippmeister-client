@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Main Component navigates to login page on /games without auth 1`] = `
+<div>
+  <div
+    className="page"
+  >
+    <div
+      className="page-body-md"
+    >
+      <form
+        onSubmit={[Function]}
+      >
+        <div
+          className="page-body-label"
+        >
+          Please login
+        </div>
+        <div
+          className="mb-4"
+        >
+          <input
+            defaultValue="User A"
+            id="username"
+            name="username"
+            placeholder="username"
+            type="text"
+          />
+        </div>
+        <div
+          className="mb-6"
+        >
+          <input
+            defaultValue="passa"
+            id="password"
+            name="password"
+            type="password"
+          />
+        </div>
+        <div
+          className="page-body-buttons"
+        >
+          <button
+            type="submit"
+          >
+            Login
+          </button>
+          <button
+            className="link"
+            onClick={[Function]}
+            type="button"
+          >
+            Forgot Password?
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Main Component navigates to login page on entry 1`] = `
+<div>
+  <div
+    className="page"
+  >
+    <div
+      className="page-body-md"
+    >
+      <form
+        onSubmit={[Function]}
+      >
+        <div
+          className="page-body-label"
+        >
+          Please login
+        </div>
+        <div
+          className="mb-4"
+        >
+          <input
+            defaultValue="User A"
+            id="username"
+            name="username"
+            placeholder="username"
+            type="text"
+          />
+        </div>
+        <div
+          className="mb-6"
+        >
+          <input
+            defaultValue="passa"
+            id="password"
+            name="password"
+            type="password"
+          />
+        </div>
+        <div
+          className="page-body-buttons"
+        >
+          <button
+            type="submit"
+          >
+            Login
+          </button>
+          <button
+            className="link"
+            onClick={[Function]}
+            type="button"
+          >
+            Forgot Password?
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+`;

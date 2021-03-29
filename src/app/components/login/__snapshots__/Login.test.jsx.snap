@@ -7,7 +7,9 @@ exports[`Login Component display element 1`] = `
   <div
     className="page-body-md"
   >
-    <form>
+    <form
+      onSubmit={[Function]}
+    >
       <div
         className="page-body-label"
       >
@@ -62,7 +64,9 @@ exports[`Login Component display element not authenticated 1`] = `
   <div
     className="page-body-md"
   >
-    <form>
+    <form
+      onSubmit={[Function]}
+    >
       <div
         className="page-body-label"
       >

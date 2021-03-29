@@ -6,13 +6,13 @@ import { Login } from './Login';
 describe('Login Component', () => {
   it('display element', () => {
     const tree = TestRenderer
-      .create(<Login authenticated="" />)
+      .create(<Login authenticated="" authenticateUser={() => {}} />)
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
   it('display element not authenticated', () => {
     const tree = TestRenderer
-      .create(<Login authenticated={mutations.NOT_AUTHENTICATED} />)
+      .create(<Login authenticated={mutations.NOT_AUTHENTICATED} authenticateUser={() => {}} />)
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
