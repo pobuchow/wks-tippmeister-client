@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import _ from 'lodash';
 import { requestCreateGame } from '../../../store/mutations/gameMutations';
 
 export const CreateGameForm = ({ userId, createGame }) => {
@@ -11,7 +10,7 @@ export const CreateGameForm = ({ userId, createGame }) => {
     <div className="page-body-md">
       <div className="page-body-label">create new game</div>
       <form className="form-simple">
-        <label className="form-simple-label" label htmlFor="gameName">
+        <label className="form-simple-label" htmlFor="gameName">
           <input
             id="gameName"
             type="text"

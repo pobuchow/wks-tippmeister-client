@@ -25,11 +25,11 @@ export const Gameboard = ({ games }) => (
 Gameboard.propTypes = {
   games: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string.isRequired,
-    event_datetime: PropTypes.instanceOf(Date).isRequired,
-    homeTeam: PropTypes.string.isRequired,
-    awayTeam: PropTypes.string.isRequired,
-    goalsHomeTeam: PropTypes.number.isRequired,
-    goalsAwayTeam: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    users: PropTypes.arrayOf(PropTypes.string),
+    matches: PropTypes.arrayOf(PropTypes.string),
+    hosts: PropTypes.arrayOf(PropTypes.string).isRequired,
+    isFinished: PropTypes.bool.isRequired,
   })),
 };
 
