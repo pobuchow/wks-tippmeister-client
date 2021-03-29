@@ -1,17 +1,19 @@
-import React, { useState } from "react";
-import { connect } from "react-redux";
-import _ from "lodash";
-import { requestCreateGame } from "../../store/mutations/gameMutations";
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import _ from 'lodash';
+import { requestCreateGame } from '../../../store/mutations/gameMutations';
 
 export const CreateGameForm = ({ userId, createGame }) => {
-  const [name, setName] = useState("");
+  const [name, setName] = useState('');
 
   return (
     <div className="page-body-md">
       <div className="page-body-label">create new game</div>
       <form className="form-simple">
-        <label className="form-simple-label">
+        <label className="form-simple-label" label htmlFor="gameName">
           <input
+            id="gameName"
             type="text"
             value={name}
             placeholder="name"
@@ -39,15 +41,22 @@ export const CreateGameForm = ({ userId, createGame }) => {
   );
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    createGame(userId, name) {
-      dispatch(requestCreateGame(userId, name));
-    },
-  };
+CreateGameForm.propTypes = {
+  userId: PropTypes.string.isRequired,
+  createGame: PropTypes.func,
 };
+
+CreateGameForm.defaultProps = {
+  createGame: null,
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  createGame(userId, name) {
+    dispatch(requestCreateGame(userId, name));
+  },
+});
 
 export const ConnectedCreateGameForm = connect(
   (state) => ({ userId: state.session.id }),
-  mapDispatchToProps
+  mapDispatchToProps,
 )(CreateGameForm);
