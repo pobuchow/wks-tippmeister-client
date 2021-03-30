@@ -7,6 +7,7 @@ import { ConnectedLogin } from '../login/Login';
 import { history } from '../../store/history';
 import { ConnectedGameboard } from '../gameboard/Gameboard';
 import RouteGuard from './routeGuard/RouteGuard';
+import PageNotFound from './pages/notfound/PageNotFound';
 
 const Main = () => (
   <Router history={history}>
@@ -20,6 +21,7 @@ const Main = () => (
             path="/games/:id/dashboard"
             render={RouteGuard(ConnectedDashboard)}
           />
+          <Route component={PageNotFound} />
         </Switch>
       </div>
     </Provider>

@@ -65,8 +65,9 @@
     @apply h-6 w-6 text-white m-auto;
   }
   .link {
-    @apply inline-block 
+    @apply flex 
       align-baseline 
+      justify-center
       font-normal 
       text-sm 
       text-white 
