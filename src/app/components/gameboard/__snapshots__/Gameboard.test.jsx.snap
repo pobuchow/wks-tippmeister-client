@@ -1,0 +1,156 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Gameboard Component display element should render element with games 1`] = `
+<div
+  className="page"
+>
+  <div
+    className="page-body-full"
+  >
+    <div
+      className="page-body-label"
+    >
+      Wks-Tippmeister
+    </div>
+    <div
+      className="gameboard"
+    >
+      <a
+        href="/games/2/dashboard"
+        onClick={[Function]}
+      >
+        <div
+          className="gameboard-card"
+        >
+          <h2
+            className="gameboard-card-title"
+          >
+            saison 2019/20
+          </h2>
+        </div>
+      </a>
+      <a
+        href="/games/1/dashboard"
+        onClick={[Function]}
+      >
+        <div
+          className="gameboard-card"
+        >
+          <h2
+            className="gameboard-card-title"
+          >
+            saison 2020/21
+          </h2>
+        </div>
+      </a>
+    </div>
+    <div
+      className="page-body-md"
+    >
+      <div
+        className="page-body-label"
+      >
+        create new game
+      </div>
+      <form
+        className="form-simple"
+      >
+        <label
+          className="form-simple-label"
+          htmlFor="gameName"
+        >
+          <input
+            id="gameName"
+            onChange={[Function]}
+            placeholder="name"
+            type="text"
+            value=""
+          />
+        </label>
+        <button
+          onClick={[Function]}
+          type="button"
+        >
+          <svg
+            className="icon"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M9 5l7 7-7 7"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+            />
+          </svg>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Gameboard Component display element should render element without games 1`] = `
+<div
+  className="page"
+>
+  <div
+    className="page-body-full"
+  >
+    <div
+      className="page-body-label"
+    >
+      Wks-Tippmeister
+    </div>
+    <div
+      className="gameboard"
+    />
+    <div
+      className="page-body-md"
+    >
+      <div
+        className="page-body-label"
+      >
+        create new game
+      </div>
+      <form
+        className="form-simple"
+      >
+        <label
+          className="form-simple-label"
+          htmlFor="gameName"
+        >
+          <input
+            id="gameName"
+            onChange={[Function]}
+            placeholder="name"
+            type="text"
+            value=""
+          />
+        </label>
+        <button
+          onClick={[Function]}
+          type="button"
+        >
+          <svg
+            className="icon"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M9 5l7 7-7 7"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+            />
+          </svg>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+`;

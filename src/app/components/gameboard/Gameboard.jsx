@@ -4,10 +4,12 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { ConnectedCreateGameForm } from './forms/CreateGameForm';
 
+const label = 'Wks-Tippmeister';
+
 export const Gameboard = ({ games }) => (
   <div className="page">
     <div className="page-body-full">
-      <div className="page-body-label">Wks-Tippmeister</div>
+      <div className="page-body-label">{label}</div>
       <div className="gameboard">
         {games.map((game) => (
           <Link key={game.id} to={`games/${game.id}/dashboard`}>
@@ -37,6 +39,8 @@ Gameboard.defaultProps = {
   games: [],
 };
 
-export const ConnectedGameboard = connect((state) => ({ games: state.games }))(
+export const mapStateToProps = (state) => ({ games: state.games });
+
+export const ConnectedGameboard = connect(mapStateToProps)(
   Gameboard,
 );
