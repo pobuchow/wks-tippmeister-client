@@ -55,7 +55,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
 });
 
+export const mapStateToProps = (state) => ({ userId: state.session.id });
+
 export const ConnectedCreateGameForm = connect(
-  (state) => ({ userId: state.session.id }),
+  mapStateToProps,
   mapDispatchToProps,
 )(CreateGameForm);
