@@ -1,19 +1,18 @@
-import React, { useState, useEffect } from "react";
-import { connect } from "react-redux";
-import _ from "lodash";
-import axios from "axios";
-import { requestUpdateGame } from "../../store/mutations/gameMutations";
+import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import _ from 'lodash';
+import axios from 'axios';
+import { requestUpdateGame } from '../../store/mutations/gameMutations';
 
 export const AddGameUserForm = ({ game, updateGame }) => {
   const [users, setUsers] = useState([]);
   const [user, setUser] = useState({});
 
   useEffect(async () => {
-    const url = "http://localhost:8080";
-    const result = await axios(url + `/users`);
-    let availableUsers = _.filter(result.data.users, function (user) {
-      return !_.includes(game.users, user.id);
-    });
+    const url = 'http://localhost:8080';
+    const result = await axios(`${url}/users`);
+    const availableUsers = _.filter(result.data.users, (u) => !_.includes(game.users, u.id));
     setUsers(availableUsers);
     setUser(_.isEmpty(availableUsers) ? {} : availableUsers[0].id);
   }, []);
@@ -25,11 +24,11 @@ export const AddGameUserForm = ({ game, updateGame }) => {
         <h4>No players available</h4>
       ) : (
         <form className="form-simple">
-          <label className="form-simple-label">
-            <select value={user.id} onChange={(e) => setUser(e.target.value)}>
-              {users.map((user) => (
-                <option key={user.id} value={user.id}>
-                  {user.name}
+          <label className="form-simple-label" htmlFor="users">
+            <select id="users" value={user.id} onChange={(e) => setUser(e.target.value)}>
+              {users.map((u) => (
+                <option key={u.id} value={u.id}>
+                  {u.name}
                 </option>
               ))}
             </select>
@@ -38,9 +37,7 @@ export const AddGameUserForm = ({ game, updateGame }) => {
             type="button"
             onClick={() => {
               game.users.push(user);
-              let availableUsers = _.filter(users, function (u) {
-                return u.id !== user;
-              });
+              const availableUsers = _.filter(users, (u) => u.id !== user);
               setUsers(availableUsers);
               setUser(_.isEmpty(availableUsers) ? {} : availableUsers[0].id);
               updateGame(game);
@@ -68,18 +65,28 @@ export const AddGameUserForm = ({ game, updateGame }) => {
 };
 
 const mapStateToProps = (state, ownProps) => ({
-  game: _.find(state.games, ["id", ownProps.game.id]),
+  game: _.find(state.games, ['id', ownProps.game.id]),
 });
 
-const mapDispatchToProps = (dispatch, ownProps) => {
-  return {
-    updateGame(game) {
-      dispatch(requestUpdateGame(game));
-    },
-  };
+const mapDispatchToProps = (dispatch) => ({
+  updateGame(game) {
+    dispatch(requestUpdateGame(game));
+  },
+});
+
+AddGameUserForm.propTypes = {
+  game: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    users: PropTypes.arrayOf(PropTypes.string),
+    matches: PropTypes.arrayOf(PropTypes.string),
+    hosts: PropTypes.arrayOf(PropTypes.string),
+    isFinished: PropTypes.bool.isRequired,
+  }).isRequired,
+  updateGame: PropTypes.func.isRequired,
 };
 
 export const ConnectedAddGameUserForm = connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(AddGameUserForm);

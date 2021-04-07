@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import { connect } from "react-redux";
-import _ from "lodash";
-import moment from "moment";
-import { requestAddNewMatchToGame } from "../../store/mutations/matchMutations";
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import moment from 'moment';
+import { requestAddNewMatchToGame } from '../../store/mutations/matchMutations';
 
 export const AddNextMatchForm = ({ addNewMatchToGame }) => {
-  const [homeTeam, setHomeTeam] = useState("");
-  const [awayTeam, setAwayTeam] = useState("");
+  const [homeTeam, setHomeTeam] = useState('');
+  const [awayTeam, setAwayTeam] = useState('');
   const [eventDate, setEventDate] = useState(new Date());
   const [eventTime, setEventTime] = useState(new Date());
 
@@ -14,46 +14,46 @@ export const AddNextMatchForm = ({ addNewMatchToGame }) => {
     <div>
       <div className="page-body-label">add next match</div>
       <form className="form-complex">
-        <label>
+        <label htmlFor="goalsHomeTeam">
           home team:
           <input
             type="text"
+            id="goalsHomeTeam"
             value={homeTeam}
             onChange={(e) => setHomeTeam(e.target.value)}
           />
         </label>
-        <label>
+        <label htmlFor="goalsAwayTeam">
           away team:
           <input
             type="text"
+            id="goalsAwayTeam"
             value={awayTeam}
             onChange={(e) => setAwayTeam(e.target.value)}
           />
         </label>
-        <label>
+        <label htmlFor="eventDate">
           event date:
           <input
             type="date"
-            value={moment(eventDate).format("YYYY-MM-DD")}
+            id="eventDate"
+            value={moment(eventDate).format('YYYY-MM-DD')}
             onChange={(e) => setEventDate(new Date(e.target.value))}
           />
         </label>
-        <label>
+        <label htmlFor="eventTime">
           event time:
           <input
             type="time"
-            value={moment(eventTime).format("HH:mm")}
-            onChange={(e) =>
-              setEventTime(moment(e.target.value, "HH:mm").toDate())
-            }
+            id="eventTime"
+            value={moment(eventTime).format('HH:mm')}
+            onChange={(e) => setEventTime(moment(e.target.value, 'HH:mm').toDate())}
           />
         </label>
         <button
           className="form-complex-button"
           type="button"
-          onClick={() =>
-            addNewMatchToGame(homeTeam, awayTeam, eventDate, eventTime)
-          }
+          onClick={() => addNewMatchToGame(homeTeam, awayTeam, eventDate, eventTime)}
         >
           <svg
             className="icon"
@@ -75,23 +75,25 @@ export const AddNextMatchForm = ({ addNewMatchToGame }) => {
   );
 };
 
-const mapDispatchToProps = (dispatch, ownProps) => {
-  return {
-    addNewMatchToGame(homeTeam, awayTeam, eventDate, eventTime) {
-      dispatch(
-        requestAddNewMatchToGame(
-          ownProps.game,
-          homeTeam,
-          awayTeam,
-          eventDate,
-          eventTime
-        )
-      );
-    },
-  };
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  addNewMatchToGame(homeTeam, awayTeam, eventDate, eventTime) {
+    dispatch(
+      requestAddNewMatchToGame(
+        ownProps.game,
+        homeTeam,
+        awayTeam,
+        eventDate,
+        eventTime,
+      ),
+    );
+  },
+});
+
+AddNextMatchForm.propTypes = {
+  addNewMatchToGame: PropTypes.func.isRequired,
 };
 
 export const ConnectedAddNextMatchForm = connect(
   null,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(AddNextMatchForm);
