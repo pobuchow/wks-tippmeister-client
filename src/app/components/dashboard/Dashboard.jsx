@@ -5,8 +5,8 @@ import PropTypes from 'prop-types';
 import { ConnectedNextMatch } from './matches/next/NextMatch';
 import { ConnectedLastMatch } from './matches/last/LastMatch';
 import { ConnectedScoreboard } from './scoreboard/Scoreboard';
-import { ConnectedAddGameUserForm } from './AddGameUserForm';
-import { ConnectedAddNextMatchForm } from './AddNextMatchForm';
+import { ConnectedAddGameUserForm } from './forms/add/game/AddGameUserForm';
+import { ConnectedAddNextMatchForm } from './forms/add/match/AddNextMatchForm';
 
 const label = 'dashboard';
 

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import moment from 'moment';
-import { requestAddNewMatchToGame } from '../../store/mutations/matchMutations';
+import { requestAddNewMatchToGame } from '../../../../../store/mutations/matchMutations';
 
 export const AddNextMatchForm = ({ addNewMatchToGame }) => {
   const [homeTeam, setHomeTeam] = useState('');

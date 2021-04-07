@@ -3,7 +3,10 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 import axios from 'axios';
-import { requestUpdateGame } from '../../store/mutations/gameMutations';
+import { requestUpdateGame } from '../../../../../store/mutations/gameMutations';
+
+const label = 'add new player';
+const emptyUsersMessage = 'No players available';
 
 export const AddGameUserForm = ({ game, updateGame }) => {
   const [users, setUsers] = useState([]);
@@ -19,9 +22,9 @@ export const AddGameUserForm = ({ game, updateGame }) => {
 
   return (
     <div>
-      <div className="page-body-label">add new player</div>
+      <div className="page-body-label">{label}</div>
       {_.isEmpty(users) ? (
-        <h4>No players available</h4>
+        <h4>{emptyUsersMessage}</h4>
       ) : (
         <form className="form-simple">
           <label className="form-simple-label" htmlFor="users">
