@@ -7,8 +7,9 @@ import { requestAddNewMatchToGame } from '../../../../../store/mutations/matchMu
 export const AddNextMatchForm = ({ addNewMatchToGame }) => {
   const [homeTeam, setHomeTeam] = useState('');
   const [awayTeam, setAwayTeam] = useState('');
-  const [eventDate, setEventDate] = useState(new Date());
-  const [eventTime, setEventTime] = useState(new Date());
+  const timestamp = Date.now();
+  const [eventDate, setEventDate] = useState(new Date(timestamp));
+  const [eventTime, setEventTime] = useState(new Date(timestamp));
 
   return (
     <div>

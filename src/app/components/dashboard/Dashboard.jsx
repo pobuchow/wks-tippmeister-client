@@ -29,8 +29,8 @@ export const Dashboard = ({ userId, game }) => (
   </div>
 );
 
-function mapStateToProps(state, ownProps) {
-  const gameId = ownProps.match.params.id;
+export function mapStateToProps(state, ownProps) {
+  const gameId = ownProps.route.params.id;
   const game = _.find(state.games, ['id', gameId]);
   return {
     userId: state.session.id,
