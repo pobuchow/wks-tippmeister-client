@@ -1,8 +1,9 @@
-import React from "react";
-import { connect } from "react-redux";
-import _ from "lodash";
-import { ConnectedNextBet } from "./NextBet";
-import calcPoints from "../../../services/score/ScoreService";
+import React from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import _ from 'lodash';
+import { ConnectedNextBet } from './bet/NextBet';
+import calcPoints from '../../../services/score/ScoreService';
 
 export const Scoreboard = ({ scores, gameId }) => (
   <div className="page-body-full">
@@ -17,7 +18,7 @@ export const Scoreboard = ({ scores, gameId }) => (
             </tr>
           </thead>
           <tbody>
-            {_.orderBy(scores, ["points"], ["desc"]).map((score) => (
+            {_.orderBy(scores, ['points'], ['desc']).map((score) => (
               <tr key={score.userId}>
                 <td className="scoreboard-name-row">{score.name}</td>
                 <td className="scoreboard-points-row">{score.points}</td>
@@ -32,25 +33,33 @@ export const Scoreboard = ({ scores, gameId }) => (
 );
 
 function mapState2Props(state, ownProps) {
-  let users = _.filter(state.users, function (user) {
-    return _.includes(ownProps.users, user.id);
-  });
-  let matches = _.filter(state.matches, function (match) {
-    return _.includes(ownProps.matches, match.id);
-  });
-  let scoresResult = _.map(users, function (user) {
-    return {
-      userId: user.id,
-      name: user.name,
-      points: calcPoints(
-        matches, 
-        _.filter(state.bets, { 'game': ownProps.game, 'owner': user.id }))
-    };
-  });
+  const users = _.filter(state.users, (user) => _.includes(ownProps.users, user.id));
+  const matches = _.filter(state.matches, (match) => _.includes(ownProps.matches, match.id));
+  const scoresResult = _.map(users, (user) => ({
+    userId: user.id,
+    name: user.name,
+    points: calcPoints(
+      matches,
+      _.filter(state.bets, { game: ownProps.game, owner: user.id }),
+    ),
+  }));
   return {
     gameId: ownProps.game,
-    scores: scoresResult
+    scores: scoresResult,
   };
 }
+
+Scoreboard.propTypes = {
+  scores: PropTypes.arrayOf(PropTypes.shape({
+    userId: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    points: PropTypes.number,
+  })),
+  gameId: PropTypes.string.isRequired,
+};
+
+Scoreboard.defaultProps = {
+  scores: [],
+};
 
 export const ConnectedScoreboard = connect(mapState2Props)(Scoreboard);
