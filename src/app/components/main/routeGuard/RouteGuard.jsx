@@ -1,6 +1,6 @@
 import React from 'react';
 import { Redirect } from 'react-router';
-import { store } from '../../../store';
+import store from '../../../store';
 
 function withData(Component) {
   const redirect = ({ match }) => {

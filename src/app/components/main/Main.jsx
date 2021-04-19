@@ -1,10 +1,10 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { Router, Route, Switch } from 'react-router-dom';
-import { store } from '../../store';
+import store from '../../store';
 import { ConnectedDashboard } from '../dashboard/Dashboard';
 import { ConnectedLogin } from '../login/Login';
-import { history } from '../../store/history';
+import history from '../../store/history';
 import { ConnectedGameboard } from '../gameboard/Gameboard';
 import RouteGuard from './routeGuard/RouteGuard';
 import PageNotFound from './pages/notfound/PageNotFound';

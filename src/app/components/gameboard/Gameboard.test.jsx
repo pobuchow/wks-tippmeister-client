@@ -1,7 +1,7 @@
 import TestRenderer from 'react-test-renderer';
 import React from 'react';
 import { Router } from 'react-router-dom';
-import { history } from '../../store/history';
+import history from '../../store/history';
 import { mapStateToProps, ConnectedGameboard } from './Gameboard';
 import ProviderWrapper from '../ProviderWrapper';
 

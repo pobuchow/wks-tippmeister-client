@@ -1,19 +1,19 @@
-import { createStore, applyMiddleware, combineReducers } from "redux";
-import initialState from "../../server/db/initialState";
-import { createLogger } from "redux-logger";
-import createSagaMiddleware from "redux-saga";
-import * as sagas from "./sagas";
-import * as mutations from "./mutations/mutations";
-import * as matchMutations from "./mutations/matchMutations";
-import * as gameMutations from "./mutations/gameMutations";
-import * as betMutations from "./mutations/betMutations";
+import { createStore, applyMiddleware, combineReducers } from 'redux';
+import { createLogger } from 'redux-logger';
+import createSagaMiddleware from 'redux-saga';
+import initialState from '../../server/db/initialState';
+import * as sagas from './sagas';
+import * as mutations from './mutations/mutations';
+import * as matchMutations from './mutations/matchMutations';
+import * as gameMutations from './mutations/gameMutations';
+import * as betMutations from './mutations/betMutations';
 
 const sagaMiddleware = createSagaMiddleware();
 
-export const store = createStore(
+const store = createStore(
   combineReducers({
     session(userSession = initialState.session || {}, action) {
-      let { type, authenticated } = action;
+      const { type, authenticated } = action;
       switch (type) {
         case mutations.REQUEST_AUTHENTICATE_USER:
           return { ...userSession, authenticated: mutations.AUTHENTICATING };
@@ -27,69 +27,83 @@ export const store = createStore(
     },
     bets(bets = [], action) {
       switch (action.type) {
-        case betMutations.BET_MATCH:
+        case betMutations.BET_MATCH: {
+          const resultBets = bets;
           const updatedBet = action.bet;
-          let betToUpdateIndex = bets.findIndex(
-            (bet) => bet.id == updatedBet.id
+          const betToUpdateIndex = resultBets.findIndex(
+            (bet) => bet.id === updatedBet.id,
           );
-          if(betToUpdateIndex === -1){
-            return [...bets, updatedBet]
-          }else{
-            bets[betToUpdateIndex] = updatedBet;
-            return [...bets];
+          if (betToUpdateIndex === -1) {
+            return [...resultBets, updatedBet];
           }
+          resultBets[betToUpdateIndex] = updatedBet;
+          return [...resultBets];
+        }
         case mutations.LOAD_STATE:
           return action.state.bets;
+        default:
+          return bets;
       }
-      return bets;
     },
     matches(matches = [], action) {
       switch (action.type) {
         case matchMutations.ADD_MATCH:
           return [...matches, action.match];
-        case matchMutations.UPDATE_MATCH:
+        case matchMutations.UPDATE_MATCH: {
+          const resultMatches = matches;
           const updatedMatch = action.match;
-          let matchToUpdateIndex = matches.findIndex(
-            (match) => match.id == updatedMatch.id
+          const matchToUpdateIndex = resultMatches.findIndex(
+            (match) => match.id === updatedMatch.id,
           );
-          matches[matchToUpdateIndex] = updatedMatch;
-          return [...matches];
-        case mutations.LOAD_STATE:
-          let load = action.state.matches;
-          load.forEach((match) => {
-            match.event_datetime = new Date(match.event_datetime);
+          resultMatches[matchToUpdateIndex] = updatedMatch;
+          return [...resultMatches];
+        }
+        case mutations.LOAD_STATE: {
+          const load = action.state.matches;
+          load.map((match) => {
+            const resultMatch = match;
+            resultMatch.event_datetime = new Date(match.event_datetime);
+            return resultMatch;
           });
           return load;
+        }
+        default:
+          return matches;
       }
-      return matches;
     },
     games(games = [], action) {
       switch (action.type) {
         case gameMutations.CREATE_GAME:
           return [...games, action.game];
-        case gameMutations.UPDATE_GAME:
+        case gameMutations.UPDATE_GAME: {
+          const resultGames = games;
           const updatedGame = action.game;
-          let gameToUpdateIndex = games.findIndex(
-            (game) => game.id == updatedGame.id
+          const gameToUpdateIndex = resultGames.findIndex(
+            (game) => game.id === updatedGame.id,
           );
-          games[gameToUpdateIndex] = updatedGame;
-          return [...games];
+          resultGames[gameToUpdateIndex] = updatedGame;
+          return [...resultGames];
+        }
         case mutations.LOAD_STATE:
           return action.state.games;
+        default:
+          return games;
       }
-      return games;
     },
     users(users = [], action) {
       switch (action.type) {
         case mutations.LOAD_STATE:
           return action.state.users;
+        default:
+          return users;
       }
-      return users;
-    }
+    },
   }),
-  applyMiddleware(createLogger(), sagaMiddleware)
+  applyMiddleware(createLogger(), sagaMiddleware),
 );
 
-for (let saga in sagas) {
+for (const saga in sagas) {
   sagaMiddleware.run(sagas[saga]);
 }
+
+export default store;
