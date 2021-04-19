@@ -43,7 +43,100 @@ exports[`Dashboard Component display element should render dashboard 1`] = `
                 </th>
               </tr>
             </thead>
-            <tbody />
+            <tbody>
+              <tr>
+                <td
+                  className="scoreboard-name-row"
+                >
+                  User B
+                </td>
+                <td
+                  className="scoreboard-points-row"
+                >
+                  2
+                </td>
+                <td
+                  className="scoreboard-score-row"
+                />
+              </tr>
+              <tr>
+                <td
+                  className="scoreboard-name-row"
+                >
+                  User D
+                </td>
+                <td
+                  className="scoreboard-points-row"
+                >
+                  1
+                </td>
+                <td
+                  className="scoreboard-score-row"
+                >
+                  <div
+                    style={
+                      Object {
+                        "display": "inline-block",
+                      }
+                    }
+                  >
+                    <div>
+                      1
+                       
+                      :
+                       
+                      1
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td
+                  className="scoreboard-name-row"
+                >
+                  User A
+                </td>
+                <td
+                  className="scoreboard-points-row"
+                >
+                  0
+                </td>
+                <td
+                  className="scoreboard-score-row"
+                />
+              </tr>
+              <tr>
+                <td
+                  className="scoreboard-name-row"
+                >
+                  User C
+                </td>
+                <td
+                  className="scoreboard-points-row"
+                >
+                  0
+                </td>
+                <td
+                  className="scoreboard-score-row"
+                >
+                  <div
+                    style={
+                      Object {
+                        "display": "inline-block",
+                      }
+                    }
+                  >
+                    <div>
+                      1
+                       
+                      :
+                       
+                      0
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
           </table>
         </div>
       </div>
