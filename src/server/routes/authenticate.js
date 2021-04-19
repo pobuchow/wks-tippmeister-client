@@ -1,6 +1,6 @@
 const uuid = require('uuid').v4;
 import md5 from 'md5';
-import { connectDB } from '../db/connectDB';
+import connectDB from '../db/connectDB';
 
 const authenticationTokens = [];
 

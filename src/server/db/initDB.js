@@ -1,12 +1,12 @@
-import initialState from "./initialState";
-import { connectDB } from "./connectDB";
+import initialState from './initialState';
+import connectDB from './connectDB';
 
-export async function initDB() {
-  let db = await connectDB();
-  for (let collectionName in initialState) {
-    if (collectionName !== "session") {
-      let collection = db.collection(collectionName);
-      await collection.insertMany(initialState[collectionName]);
+export default async function initDB() {
+  const db = await connectDB();
+  for (const collectionName in initialState) {
+    if (collectionName !== 'session') {
+      const collection = db.collection(collectionName);
+      collection.insertMany(initialState[collectionName]);
     }
   }
 }
