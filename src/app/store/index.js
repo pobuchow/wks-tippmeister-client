@@ -102,8 +102,8 @@ const store = createStore(
   applyMiddleware(createLogger(), sagaMiddleware),
 );
 
-for (const saga in sagas) {
+Object.keys(sagas).forEach((saga) => {
   sagaMiddleware.run(sagas[saga]);
-}
+});
 
 export default store;
