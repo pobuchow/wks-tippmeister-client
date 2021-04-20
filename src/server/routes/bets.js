@@ -1,9 +1,9 @@
-import connectDB from "../db/connectDB";
+import connectDB from '../db/connectDB';
 
 const upsertBet = async (bet) => {
-  let db = await connectDB();
-  let collection = db.collection(`bets`);
-  let betToUpdate = await collection.findOne({ id: bet.id });
+  const db = await connectDB();
+  const collection = db.collection('bets');
+  const betToUpdate = await collection.findOne({ id: bet.id });
   if (betToUpdate) {
     await collection.updateOne(
       { id: bet.id },
@@ -15,17 +15,19 @@ const upsertBet = async (bet) => {
           goalsAwayTeam: bet.goalsAwayTeam,
           game: bet.game,
         },
-      }
+      },
     );
   } else {
     await collection.insertOne(bet);
   }
 };
 
-export const betsRoute = (app) => {
-  app.post("/bets", async (request, response) => {
-    let bet = request.body.bet;
+const betsRoute = (app) => {
+  app.post('/bets', async (request, response) => {
+    const { bet } = request.body;
     await upsertBet(bet);
     response.status(200).send();
   });
 };
+
+export default betsRoute;

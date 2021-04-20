@@ -1,9 +1,9 @@
-import connectDB from "../db/connectDB";
+import connectDB from '../db/connectDB';
 
 const upsertGame = async (game) => {
-  let db = await connectDB();
-  let collection = db.collection(`games`);
-  let gameToUpdate = await collection.findOne({ id: game.id });
+  const db = await connectDB();
+  const collection = db.collection('games');
+  const gameToUpdate = await collection.findOne({ id: game.id });
   if (gameToUpdate) {
     await collection.updateOne(
       { id: game.id },
@@ -15,16 +15,19 @@ const upsertGame = async (game) => {
           hosts: game.hosts,
           isFinished: game.isFinished,
         },
-      }
+      },
     );
   } else {
     await collection.insertOne(game);
   }
 };
-export const gamesRoute = (app) => {
-  app.post("/games", async (request, response) => {
-    let game = request.body.game;
+
+const gamesRoute = (app) => {
+  app.post('/games', async (request, response) => {
+    const { game } = request.body;
     await upsertGame(game);
     response.status(200).send();
   });
 };
+
+export default gamesRoute;

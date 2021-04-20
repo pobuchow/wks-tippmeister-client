@@ -1,15 +1,18 @@
-import connectDB from "../db/connectDB";
+import connectDB from '../db/connectDB';
 
 async function getUsers() {
-  let db = await connectDB();
-  let collection = db.collection(`users`);
-  return await collection.find({}).toArray();
+  const db = await connectDB();
+  const collection = db.collection('users');
+  return collection.find({}).toArray();
 }
-export const usersRoute = (app) => {
-  app.get("/users", async (request, response) => {
-    let users = await getUsers();
+
+const usersRoute = (app) => {
+  app.get('/users', async (request, response) => {
+    const users = await getUsers();
     response.status(200).send({
-      users: users,
+      users,
     });
   });
 };
+
+export default usersRoute;

@@ -1,16 +1,16 @@
-import express from "express";
-import cors from "cors";
-import bodyParser from "body-parser";
-import { authenticationRoute } from "./routes/authenticate";
-import { betsRoute } from "./routes/bets";
-import { gamesRoute } from "./routes/games";
-import { matchesRoute } from "./routes/matches";
-import { usersRoute } from "./routes/users";
+import express from 'express';
+import cors from 'cors';
+import bodyParser from 'body-parser';
+import authenticationRoute from './routes/authenticate';
+import betsRoute from './routes/bets';
+import gamesRoute from './routes/games';
+import matchesRoute from './routes/matches';
+import usersRoute from './routes/users';
 
-let port = 8080;
-let app = express();
+const port = 8080;
+const app = express();
 
-app.listen(port, console.log("Server is running on port", port));
+app.listen(port);
 
 app.use(cors(), bodyParser.urlencoded({ extended: true }), bodyParser.json());
 

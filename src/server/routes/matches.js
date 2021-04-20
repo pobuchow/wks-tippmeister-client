@@ -1,9 +1,9 @@
-import connectDB from "../db/connectDB";
+import connectDB from '../db/connectDB';
 
 const upsertMatch = async (match) => {
-  let db = await connectDB();
-  let collection = db.collection(`matches`);
-  let matchToUpdate = await collection.findOne({ id: match.id });
+  const db = await connectDB();
+  const collection = db.collection('matches');
+  const matchToUpdate = await collection.findOne({ id: match.id });
   if (matchToUpdate) {
     await collection.updateOne(
       { id: match.id },
@@ -15,17 +15,19 @@ const upsertMatch = async (match) => {
           goalsHomeTeam: match.goalsHomeTeam,
           goalsAwayTeam: match.goalsAwayTeam,
         },
-      }
+      },
     );
   } else {
     await collection.insertOne(match);
   }
 };
 
-export const matchesRoute = (app) => {
-  app.post("/matches", async (request, response) => {
-    let match = request.body.match;
+const matchesRoute = (app) => {
+  app.post('/matches', async (request, response) => {
+    const { match } = request.body;
     await upsertMatch(match);
     response.status(200).send();
   });
 };
+
+export default matchesRoute;
