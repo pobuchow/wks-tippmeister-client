@@ -1,4 +1,4 @@
-import connectDB from '../db/connectDB';
+import connectDB from '../../db/connectDB';
 
 const upsertMatch = async (match) => {
   const db = await connectDB();

@@ -1,4 +1,4 @@
-import connectDB from '../db/connectDB';
+import connectDB from '../../db/connectDB';
 
 async function getUsers() {
   const db = await connectDB();
