@@ -5,7 +5,7 @@ const upsertGame = async (game) => {
   const collection = db.collection('games');
   const gameToUpdate = await collection.findOne({ id: game.id });
   if (gameToUpdate) {
-    await collection.updateOne(
+    return collection.updateOne(
       { id: game.id },
       {
         $set: {
@@ -16,17 +16,16 @@ const upsertGame = async (game) => {
           isFinished: game.isFinished,
         },
       },
-    );
-  } else {
-    await collection.insertOne(game);
+    ).then(({ ops }) => ops[0]);
   }
+  return collection.insertOne(game).then(({ ops }) => ops[0]);
 };
 
 const gamesRoute = (app) => {
   app.post('/games', async (request, response) => {
     const { game } = request.body;
-    await upsertGame(game);
-    response.status(200).send();
+    const result = await upsertGame(game);
+    response.status(200).send({ game: result });
   });
 };
 
