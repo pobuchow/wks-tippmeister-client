@@ -11,6 +11,15 @@ const match = {
   goalsAwayTeam: 1,
 };
 
+const matchWithFalsyGoals = {
+  id: '1',
+  event_datetime: new Date(2020, 12 - 1, 17, 18, 0, 0, 0),
+  homeTeam: 'Śląsk Wrocław',
+  awayTeam: 'Warta Poznań',
+  goalsHomeTeam: 0,
+  goalsAwayTeam: 0,
+};
+
 const matchWithoutGoals = {
   id: '1',
   event_datetime: new Date(2020, 12 - 1, 17, 18, 0, 0, 0),
@@ -40,6 +49,13 @@ describe('Match Table', () => {
   it('render snapshot element without goal results', () => {
     const tree = TestRenderer
       .create(<MatchTable label={label} match={matchWithoutGoals} />)
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('render snapshot element with falsy goal results', () => {
+    const tree = TestRenderer
+      .create(<MatchTable label={label} match={matchWithFalsyGoals} />)
       .toJSON();
     expect(tree).toMatchSnapshot();
   });

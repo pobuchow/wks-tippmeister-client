@@ -40,12 +40,12 @@ const MatchTable = ({ label, match }) => (match ? (
               </td>
               <td className="match-table-result-row">
                 <p className="match-result-p">
-                  {match.goalsHomeTeam ? match.goalsHomeTeam : '?'}
+                  { Number.isInteger(match.goalsHomeTeam) ? match.goalsHomeTeam : '?'}
                 </p>
               </td>
               <td className="match-table-result-row">
                 <p className="match-result-p">
-                  {match.goalsAwayTeam ? match.goalsAwayTeam : '?'}
+                  { Number.isInteger(match.goalsAwayTeam) ? match.goalsAwayTeam : '?'}
                 </p>
               </td>
               <td className="match-row">

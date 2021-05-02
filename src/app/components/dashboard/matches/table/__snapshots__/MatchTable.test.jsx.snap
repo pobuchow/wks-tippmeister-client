@@ -2,6 +2,126 @@
 
 exports[`Match Table does not render when match is null 1`] = `null`;
 
+exports[`Match Table render snapshot element with falsy goal results 1`] = `
+<div>
+  <div
+    className="page-body-label"
+  >
+    test_label
+  </div>
+  <div
+    className="table-frame"
+  >
+    <div
+      className="table-div"
+    >
+      <table
+        className="table"
+      >
+        <thead>
+          <tr>
+            <th
+              className="header"
+            >
+              Home
+            </th>
+            <th
+              className="header"
+            >
+              2020-12-17
+            </th>
+            <th
+              className="header"
+            >
+              18:00
+            </th>
+            <th
+              className="header"
+            >
+              Away
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td
+              className="match-row"
+            >
+              <div
+                className="match-home-team-row"
+              >
+                <div
+                  className="match-team-icon"
+                >
+                  <img
+                    alt=""
+                    className="icon-img"
+                    src="https://upload.wikimedia.org/wikipedia/en/8/8f/Slask_Wroclaw_crest.png"
+                  />
+                </div>
+                <div
+                  className="match-home-team-row-name"
+                >
+                  <p
+                    className="match-home-team-row-name-p"
+                  >
+                    Śląsk Wrocław
+                  </p>
+                </div>
+              </div>
+            </td>
+            <td
+              className="match-table-result-row"
+            >
+              <p
+                className="match-result-p"
+              >
+                0
+              </p>
+            </td>
+            <td
+              className="match-table-result-row"
+            >
+              <p
+                className="match-result-p"
+              >
+                0
+              </p>
+            </td>
+            <td
+              className="match-row"
+            >
+              <div
+                className="match-away-team-row"
+              >
+                <div
+                  className="match-away-team-row-name"
+                >
+                  <p
+                    className="match-away-team-row-name-p"
+                  >
+                    Warta Poznań
+                  </p>
+                </div>
+                <div
+                  className="match-team-icon"
+                >
+                  <img
+                    alt=""
+                    className=".icon-img"
+                    src="https://upload.wikimedia.org/wikipedia/en/8/8f/Slask_Wroclaw_crest.png"
+                  />
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Match Table render snapshot element without goal results 1`] = `
 <div>
   <div
