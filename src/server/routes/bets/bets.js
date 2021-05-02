@@ -5,7 +5,7 @@ const upsertBet = async (bet) => {
   const collection = db.collection('bets');
   const betToUpdate = await collection.findOne({ id: bet.id });
   if (betToUpdate) {
-    await collection.updateOne(
+    return collection.updateOne(
       { id: bet.id },
       {
         $set: {
@@ -16,17 +16,16 @@ const upsertBet = async (bet) => {
           game: bet.game,
         },
       },
-    );
-  } else {
-    await collection.insertOne(bet);
+    ).then(({ ops }) => ops[0]);
   }
+  return collection.insertOne(bet).then(({ ops }) => ops[0]);
 };
 
 const betsRoute = (app) => {
   app.post('/bets', async (request, response) => {
     const { bet } = request.body;
-    await upsertBet(bet);
-    response.status(200).send();
+    const result = await upsertBet(bet);
+    response.status(200).send({ bet: result });
   });
 };
 

@@ -6,7 +6,7 @@ const request = supertest(app);
 
 jest.mock('../../db/connectDB');
 
-const gamesToInsert = {
+const gameToInsert = {
   id: '538e2071-f614-46f6-b49e-42e038ed90c8',
   name: 'newGame',
   users: ['1'],
@@ -15,7 +15,7 @@ const gamesToInsert = {
   isFinished: false,
 };
 const mockInsertedGame = {
-  ...gamesToInsert,
+  ...gameToInsert,
   _id: '608eda3db95ae921bc989d9f',
 };
 const existingGame = {
@@ -29,7 +29,7 @@ const mockUpdatedGame = {
   ...gameToUpdate,
 };
 describe('games route', () => {
-  it('should insert a games into collection', async (done) => {
+  it('should insert a game into collection', async (done) => {
     connectDB.mockImplementation(() => ({
       collection: jest.fn().mockImplementation(() => ({
         findOne: jest.fn().mockReturnValueOnce(null),
@@ -42,7 +42,7 @@ describe('games route', () => {
     const response = await request
       .post('/games')
       .send({
-        game: gamesToInsert,
+        game: gameToInsert,
       }).expect(200);
 
     expect(response.body).toHaveProperty('game');
