@@ -49,7 +49,7 @@ CreateGameForm.defaultProps = {
   createGame: null,
 };
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   createGame(userId, name) {
     dispatch(requestCreateGame(userId, name));
   },
