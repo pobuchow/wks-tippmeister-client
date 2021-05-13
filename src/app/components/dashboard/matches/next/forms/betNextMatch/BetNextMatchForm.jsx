@@ -55,7 +55,7 @@ export const BetNextMatchForm = ({ match, bet, betMatch }) => {
   );
 };
 
-function mapStateToProps(state, ownProps) {
+export function mapStateToProps(state, ownProps) {
   const userId = state.session.id;
   const { match } = ownProps;
   const betTemplate = { match: match.id, owner: userId, game: ownProps.gameId };
