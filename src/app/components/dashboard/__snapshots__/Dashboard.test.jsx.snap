@@ -164,22 +164,22 @@ exports[`Dashboard Component display element should render dashboard 1`] = `
           className="form-complex"
         >
           <label
-            htmlFor="goalsHomeTeam"
+            htmlFor="homeTeam"
           >
             home team:
             <input
-              id="goalsHomeTeam"
+              id="homeTeam"
               onChange={[Function]}
               type="text"
               value=""
             />
           </label>
           <label
-            htmlFor="goalsAwayTeam"
+            htmlFor="awayTeam"
           >
             away team:
             <input
-              id="goalsAwayTeam"
+              id="awayTeam"
               onChange={[Function]}
               type="text"
               value=""

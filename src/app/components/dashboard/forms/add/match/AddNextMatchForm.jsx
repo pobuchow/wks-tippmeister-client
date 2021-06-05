@@ -15,20 +15,20 @@ export const AddNextMatchForm = ({ addNewMatchToGame }) => {
     <div>
       <div className="page-body-label">add next match</div>
       <form className="form-complex">
-        <label htmlFor="goalsHomeTeam">
+        <label htmlFor="homeTeam">
           home team:
           <input
             type="text"
-            id="goalsHomeTeam"
+            id="homeTeam"
             value={homeTeam}
             onChange={(e) => setHomeTeam(e.target.value)}
           />
         </label>
-        <label htmlFor="goalsAwayTeam">
+        <label htmlFor="awayTeam">
           away team:
           <input
             type="text"
-            id="goalsAwayTeam"
+            id="awayTeam"
             value={awayTeam}
             onChange={(e) => setAwayTeam(e.target.value)}
           />
